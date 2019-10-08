@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap 4 Website Example</title>
+  <title>Number Guessing Game</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -13,21 +13,49 @@
     height: 200px;
     background: #aaa;
   }
+
   </style>
 </head>
 <body>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
-  <h1>My First Bootstrap 4 Page</h1>
-  <p>Resize this responsive page to see the effect!</p> 
+    <h1 id="questionNumber">Trivia Game</h1>
+    <br>
+    <h3 id="questionLbl"></h3>
+    <br><br>
+    
+    <div class="input-group mb-3 input-group-lg">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon2">True or False</span>
+      </div>
+      <input
+        id="userGuess"
+        type="text"
+        class="form-control"
+        placeholder="True or False"
+        aria-label="True or False"
+        aria-describedby="basic-addon2"
+      />
+    </div>
+    
+    <button id="check" type="button" class="btn btn-primary btn-lg">Guess</button>
+    <button id="nextQuestion" type="button" class="btn btn-danger btn-lg">Next Question</button>
+    
+    <h3 id="feedBack"></h3>
+    
+    
+
+    
+    
+    <h6 id="cheat"></h6>
+    <div id="count" class="alert alert-warning" role="alert"></div>
+
+
+<div class="jumbotron text-center" style="margin-bottom:0">
 </div>
-<div id="loading" class= "spinner"></div>
-<h2 id="temp"></h2>
-<input id="userInput">
-<button id="load" >load</button>
-
-<script src="triviaGame.js">  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script 
+    src="triviaGame.js">
 </script>
-
 </body>
 </html>
