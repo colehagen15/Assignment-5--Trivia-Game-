@@ -7,6 +7,7 @@ let userGuess = $(`#userGuess`);
 let count = $(`#count`);
 
 guessBtn.attr("disabled", true);
+questionLbl.text("Press \"Start\" button to begin");
 
 var correctAnswers = 0;
 count.text(`Score: ` + correctAnswers)
@@ -19,6 +20,7 @@ const apiUrl = `https://opentdb.com/api.php?amount=10&difficulty=medium&type=boo
     
     var i = 0;
     nextQBtn.click(function() {
+        questionNumber.text("Question "+ (i+1));
         guessBtn.attr("disabled", false);
         nextQBtn.text("Next Question");
         nextQBtn.hide();
@@ -46,9 +48,9 @@ const apiUrl = `https://opentdb.com/api.php?amount=10&difficulty=medium&type=boo
         else if (userGuess.val() != 'True' || userGuess.val() != 'False'){
             feedBack.text("Guess must be True or False (Capitalization is important)");
         }
-        count.text("Score: "+ correctAnswers);
+        count.text("Score: "+ correctAnswers +"/"+(i));
         if (i == 10) {
-            feedBack.text("Total Score: "+ correctAnswers + "/" + "10");
+            $("#finalScore").text("Total Score: "+ correctAnswers + "/" + "10");
             nextQBtn.attr("disabled", true);
             guessBtn.attr("disabled", true);
         }
