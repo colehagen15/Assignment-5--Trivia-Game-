@@ -20,20 +20,22 @@ const apiUrl = `https://opentdb.com/api.php?amount=10&difficulty=medium&type=boo
     
     var i = 0;
     nextQBtn.click(function() {
-        questionNumber.text("Question "+ (i+1));
+        questionNumber.text("Question "+ (i+1)+":");
         guessBtn.attr("disabled", false);
         nextQBtn.text("Next Question");
         nextQBtn.hide();
         feedBack.hide();
         console.log(data.results[i].question)
-        questionLbl.text(`${data.results[i].question}`);
+        //questionLbl.hide();
+        questionLbl.html(`${data.results[i].question}`);
+        //questionLbl.fadeIn("slow");
         userGuess.val('');
         
       });   
     
       guessBtn.click(function() {
-        nextQBtn.show();
-        feedBack.show();
+        nextQBtn.fadeIn("slow");
+        feedBack.fadeIn("slow");
         console.log(i);
         console.log(data.results[i].correct_answer)
         if (userGuess.val() == (data.results[i].correct_answer)){
